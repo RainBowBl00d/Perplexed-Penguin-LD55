@@ -1,0 +1,4 @@
+repository "LD55@RainbowBlood@cloud"
+  path "/"
+    br "/main"
+    co "/main"
