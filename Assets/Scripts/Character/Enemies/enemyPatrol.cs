@@ -11,15 +11,20 @@ public class enemyPatrol : MonoBehaviour
     private Animator anim;
     private Transform currentPoint;
     public float speed;
+
+    
     
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentPoint = pointB.transform;
         anim.SetBool("isRunning", true);
+
     }
+    
 
     // Update is called once per frame
     void Update()
