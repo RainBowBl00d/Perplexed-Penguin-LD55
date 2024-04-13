@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 //This script handles moving the character on the Y axis, for jumping and gravity
 
@@ -9,8 +8,6 @@ public class characterJump : MonoBehaviour
     [HideInInspector] public Rigidbody2D body;
     private characterGround ground;
     [HideInInspector] public Vector2 velocity;
-    private characterJuice juice;
-    [SerializeField] MoveLimiter moveLimit;
 
     [Header("Jumping Stats")]
     [SerializeField, Range(2f, 5.5f)][Tooltip("Maximum jump height")] public float jumpHeight = 7.3f;
@@ -54,25 +51,24 @@ public class characterJump : MonoBehaviour
 
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<characterGround>();
-        juice = GetComponentInChildren<characterJuice>();
         defaultGravityScale = 1f;
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    public void OnJump()
     {
-        //This function is called when one of the jump buttons (like space or the A button) is pressed.
+ 
 
-        if (moveLimit.isGrounded)
+        if (ground.GetOnGround())
         {
             //When we press the jump button, tell the script that we desire a jump.
             //Also, use the started and canceled contexts to know if we're currently holding the button
-            if (context.started)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 desiredJump = true;
                 pressingJump = true;
             }
 
-            if (context.canceled)
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 pressingJump = false;
             }
@@ -82,7 +78,7 @@ public class characterJump : MonoBehaviour
     void Update()
     {
         setPhysics();
-
+        OnJump();
         //Check if we're on ground, using Kit's Ground script
         onGround = ground.GetOnGround();
 
@@ -240,12 +236,6 @@ public class characterJump : MonoBehaviour
             //Apply the new jumpSpeed to the velocity. It will be sent to the Rigidbody in FixedUpdate;
             velocity.y += jumpSpeed;
             currentlyJumping = true;
-
-            if (juice != null)
-            {
-                //Apply the jumping effects on the juice script
-                juice.jumpEffects();
-            }
         }
 
         if (jumpBuffer == 0)

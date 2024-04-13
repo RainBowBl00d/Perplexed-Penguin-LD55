@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Interactions;
+
 
 //This script handles moving the character on the X axis, both on the ground and in the air.
 
@@ -8,7 +7,6 @@ public class characterMovement : MonoBehaviour
 {
 
     [Header("Components")]
-    [SerializeField] MoveLimiter moveLimit;
     private Rigidbody2D body;
     characterGround ground;
 
@@ -46,21 +44,22 @@ public class characterMovement : MonoBehaviour
         ground = GetComponent<characterGround>();
     }
 
-    public void OnMovement(InputAction.CallbackContext context)
+    public void OnMovement()
     {
         //This is called when you input a direction on a valid input type, such as arrow keys or analogue stick
         //The value will read -1 when pressing left, 0 when idle, and 1 when pressing right.
 
-        if (moveLimit.isGrounded)
+        if (ground.GetOnGround())
         {
-            directionX = context.ReadValue<float>();
+            directionX = Input.GetAxis("Horizontal");
         }
     }
 
     private void Update()
     {
+        OnMovement();
         //Used to stop movement when the character is playing her death animation
-        if (!moveLimit.isGrounded)
+        if (!ground.GetOnGround())
         {
             directionX = 0;
         }
