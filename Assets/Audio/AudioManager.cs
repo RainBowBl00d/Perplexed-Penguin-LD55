@@ -49,9 +49,6 @@ public class AudioManager : MonoBehaviour
         }
         else Destroy(gameObject);
     }
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().buildIndex == 0) Play("StartMenu");
-    }
+   
     #endregion
 }
