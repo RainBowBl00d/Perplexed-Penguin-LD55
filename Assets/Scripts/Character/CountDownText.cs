@@ -17,7 +17,6 @@ using TMPro;
 
         void updateTimer()
         {   
-            Debug.Log(gameObject.GetComponent<CountDown>().timeLeft.ToString());
             _timerText.text = gameObject.GetComponent<CountDown>().timeLeft.ToString();
         }
         #region Instance Managment
