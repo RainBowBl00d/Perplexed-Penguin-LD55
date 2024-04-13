@@ -8,9 +8,10 @@ public class enemyPatrol : MonoBehaviour
     public GameObject pointA;
     public GameObject pointB;
     private Rigidbody2D rb;
-    private Animator anim;
+    //private Animator anim;
     private Transform currentPoint;
     public float speed;
+    int damage = 30;
 
     
     
@@ -19,9 +20,9 @@ public class enemyPatrol : MonoBehaviour
     {
         
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         currentPoint = pointB.transform;
-        anim.SetBool("isRunning", true);
+        //anim.SetBool("isRunning", true);
 
     }
     
@@ -48,5 +49,12 @@ public class enemyPatrol : MonoBehaviour
             currentPoint = pointB.transform;
         }
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Health>().SubtractHealt(damage);
+        }
     }
 }
