@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
 
     public void Death()
     {
-        SceneManager.LoadScene (sceneName:"GameOver");
+        if(gameObject.tag == "Player") SceneManager.LoadScene (sceneName:"GameOver");
         Destroy(gameObject);
         
     }

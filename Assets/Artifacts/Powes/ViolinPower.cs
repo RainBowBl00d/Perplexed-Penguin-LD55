@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ViolinPower : MonoBehaviour
@@ -8,24 +6,30 @@ public class ViolinPower : MonoBehaviour
     GameObject clone;
 
     [Header("Attributes")]
-    [SerializeField]float maxRange = 5f;
+    [SerializeField] float maxRange = 5f;
     [SerializeField] int damage = 10;
     [SerializeField] float smashSpeed = 10f;
+
     public void Power()
     {
-        if (gameObject != null)
+        if (clone != null)
         {
             return;
         }
+
         float distance = Vector2.Distance(player.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        Debug.Log(distance);
+        Debug.Log(maxRange);
         if (distance <= maxRange)
         {
             clone = Instantiate(gameObject);
-            clone.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Collider2D cClone = clone.GetComponent<Collider2D>();
+
+            clone.transform.position = new(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0f) ;
+
             Rigidbody2D rbClone = clone.AddComponent<Rigidbody2D>();
+
             rbClone.gravityScale = 0f;
-            rbClone.velocity = new(0f, -smashSpeed);
+            rbClone.velocity = new Vector2(0f, -smashSpeed);
         }
         else
         {
@@ -34,23 +38,22 @@ public class ViolinPower : MonoBehaviour
             Vector2 pos = new(vec.x + player.transform.position.x, vec.y + player.transform.position.y);
 
             clone = Instantiate(gameObject);
-            clone.transform.position = pos ;
-            Collider2D cClone = clone.GetComponent<Collider2D>();
-            cClone.isTrigger = true;
+            clone.transform.position = pos;
+
             Rigidbody2D rbClone = clone.AddComponent<Rigidbody2D>();
             rbClone.gravityScale = 0f;
-            rbClone.velocity = new(0f, -smashSpeed);
-
+            rbClone.velocity = new Vector2(0f, -smashSpeed);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.tag == "Enemy")
         {
             collision.GetComponent<Health>().SubtractHealt(damage);
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Ground")
+        else if (collision.tag == "Ground")
         {
             Destroy(gameObject);
         }

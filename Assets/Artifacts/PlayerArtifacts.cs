@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PlayerArtifacts : MonoBehaviour
 {
-    public List<GameObject> artifacts = new List<GameObject>();
+    public List<Items> artifacts = new List<Items>();
 
-    [SerializeField ] KeyCode violinkeyCode;
+    [SerializeField] KeyCode violinkeyCode;
 
     private void Update()
     {
@@ -15,28 +15,35 @@ public class PlayerArtifacts : MonoBehaviour
         }
     }
 
-
-
-
     public void AddArtifact(GameObject artifact)
     {
-        if (!artifacts.Contains(artifact))
+        foreach (Items artifacty in artifacts)
         {
-            GameObject clone = Instantiate(artifact);
-            Destroy(artifact);
-            artifacts.Add(clone);
+            if (artifacty.name == artifact.GetComponent<Artifact>().identify && !artifacty.isActive)
+            {
+                artifacty.isActive = true;
+            }
         }
+
+        Destroy(artifact);
     }
+
     public void UseVioln()
     {
-        foreach (GameObject artifact in artifacts)
+        foreach (Items artifact in artifacts)
         {
-            if(artifact.GetComponent<Artifact>().identify == "Violin")
+            if (artifact.name == "Violin" && artifact.isActive)
             {
-                Debug.Log("Here");
-                artifact.GetComponent<ViolinPower>().Power();
+                artifact.gameObject.GetComponent<ViolinPower>().Power();
             }
         }
     }
+}
 
+[System.Serializable]
+public class Items
+{
+    public string name;
+    public bool isActive;
+    public GameObject gameObject; 
 }
