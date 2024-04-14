@@ -17,7 +17,7 @@ public class characterGround : MonoBehaviour
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-                if (other.CompareTag("Ground") || other.CompareTag("Enemy"))
+                if (other.tag=="Ground" || other.tag=="Enemy")
                 {
                         onGround = true;
                 }
@@ -26,8 +26,8 @@ public class characterGround : MonoBehaviour
 
         private void OnTriggerExit2D(Collider2D other)
         {
-                if (other.CompareTag("Ground") || other.CompareTag("Enemey"))
-                {
+                if (other.tag == "Ground" || other.tag == "Enemy")
+        {
                         onGround = false;
                 }
         }

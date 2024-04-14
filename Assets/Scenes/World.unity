@@ -523,6 +523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3205680488340926790, guid: 9163bd2b6227c4c4682bf1a30c1116fa, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6212695107040757151, guid: 9163bd2b6227c4c4682bf1a30c1116fa, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -1771,7 +1775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503799787325465251, guid: d911bf4a06b170146857297385068962, type: 3}
       propertyPath: maxAirDeceleration
-      value: 4.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1240635648667357212, guid: d911bf4a06b170146857297385068962, type: 3}
       propertyPath: m_Name
@@ -2937,6 +2941,10 @@ PrefabInstance:
     - target: {fileID: 3205680488340926790, guid: 9163bd2b6227c4c4682bf1a30c1116fa, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205680488340926790, guid: 9163bd2b6227c4c4682bf1a30c1116fa, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6202264967547534807, guid: 9163bd2b6227c4c4682bf1a30c1116fa, type: 3}
       propertyPath: m_Layer

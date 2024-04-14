@@ -57,23 +57,20 @@ public class characterJump : MonoBehaviour
 
     public void OnJump()
     {
- 
 
-        if (ground.GetOnGround())
-        {
             //When we press the jump button, tell the script that we desire a jump.
             //Also, use the started and canceled contexts to know if we're currently holding the button
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                desiredJump = true;
-                pressingJump = true;
-            }
-
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                pressingJump = false;
-            }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            desiredJump = true;
+            pressingJump = true;
         }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            pressingJump = false;
+        }
+        
     }
 
     void Update()
