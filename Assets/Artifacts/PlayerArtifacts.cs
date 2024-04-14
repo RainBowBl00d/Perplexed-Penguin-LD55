@@ -60,6 +60,7 @@ public class PlayerArtifacts : MonoBehaviour
         {
             if (artifacty.name == artifact.GetComponent<Artifact>().identify && !artifacty.isActive)
             {
+                AudioManager.instance.Play(artifacty.name);
                 artifacty.isActive = true;
                 // Debug.Log("viiul " + artifact.GetComponent<Artifact>().identify);
                 

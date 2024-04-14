@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: 5525328122794640447}
   - component: {fileID: 156393015295240583}
   - component: {fileID: 5318008647174106826}
+<<<<<<< Updated upstream
   - component: {fileID: 8773984015876731439}
+=======
+  - component: {fileID: 7968235418891943490}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: smallharf
   m_TagString: Artifact
@@ -113,8 +117,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healing: 68
+<<<<<<< Updated upstream
 --- !u!61 &8773984015876731439
 BoxCollider2D:
+=======
+--- !u!58 &7968235418891943490
+CircleCollider2D:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,6 +151,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+<<<<<<< Updated upstream
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -158,3 +168,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+=======
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.64
+>>>>>>> Stashed changes
