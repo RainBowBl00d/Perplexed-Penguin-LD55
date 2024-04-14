@@ -10,6 +10,12 @@ public class PlayerArtifacts : MonoBehaviour
     [SerializeField] KeyCode smallHarfKeyCode;
     [SerializeField] KeyCode quitarKeyCode;
     [SerializeField] KeyCode sazKeyCode;
+    
+    [SerializeField] private GameObject Button1;
+    [SerializeField] private GameObject Button2;
+    [SerializeField] private GameObject Button3;
+    [SerializeField] private GameObject Button4;
+    [SerializeField] private GameObject Button5;
 
     float timeLeftHarf = 0f;
     float timeLeftSmallHarf = 0f;
@@ -55,6 +61,27 @@ public class PlayerArtifacts : MonoBehaviour
             if (artifacty.name == artifact.GetComponent<Artifact>().identify && !artifacty.isActive)
             {
                 artifacty.isActive = true;
+                // Debug.Log("viiul " + artifact.GetComponent<Artifact>().identify);
+                
+                switch (artifact.GetComponent<Artifact>().identify)
+                {
+                    case "violin":
+                        Button1.SetActive(true);
+                        return;
+                    case "Guitar":
+                        Button2.SetActive(true);
+                        return;
+                    case "smallharf":
+                        Button3.SetActive(true);
+                        return;
+                    case "saz":
+                        Button4.SetActive(true);
+                        return;
+                    case "Harf":
+                        Button5.SetActive(true);
+                        return;
+                
+                }
             }
         }
 
