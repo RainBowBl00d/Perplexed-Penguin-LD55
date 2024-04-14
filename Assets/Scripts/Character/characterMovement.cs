@@ -9,6 +9,7 @@ public class characterMovement : MonoBehaviour
     [Header("Components")]
     private Rigidbody2D body;
     characterGround ground;
+    public Animator animator;
 
     [Header("Movement Stats")]
     [SerializeField, Range(0f, 20f)][Tooltip("Maximum movement speed")] public float maxSpeed = 10f;
@@ -57,6 +58,7 @@ public class characterMovement : MonoBehaviour
 
     private void Update()
     {
+        animator.SetFloat("Speed", Mathf.Abs(velocity.x));
         OnMovement();
         //Used to stop movement when the character is playing her death animation
         if (!ground.GetOnGround())

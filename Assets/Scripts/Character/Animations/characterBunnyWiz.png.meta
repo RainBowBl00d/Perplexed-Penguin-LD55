@@ -1,0 +1,840 @@
+fileFormatVersion: 2
+guid: 41137f28b8174ea4fa5a46df348d4c2b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: characterBunnyWiz_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ab71dbe0780be488f4a8e85b35f5ef
+      internalID: 2118883247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ae8b5271fe2ee41804b7aee1465141
+      internalID: 708284282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_2
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33254772a3eeb7a4aac4dcf896fe7bec
+      internalID: -709408018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_3
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2abc00825231c8e41b8490c545e280e6
+      internalID: 1601927790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_4
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64cd753110f93004f8f429194d7191bb
+      internalID: 507942664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_5
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e48b926b42bf94ba7ce40a33799970
+      internalID: 1760740908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_6
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7578b45b144bd824e8e942f8fabe0ec0
+      internalID: -1071564397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_7
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3a960587611074bba7a46e5f001ad2
+      internalID: -1561455152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_8
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e556664e1586524cb53b1dfebbde309
+      internalID: -2031455976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_9
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d241928a9d1bb1940b53b3699d5dfbf2
+      internalID: -260505543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_10
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18f9e7866367614ba4aa63e811179c9
+      internalID: 1469339118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_11
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c305cc825ea7a3e44bd44d66fea02495
+      internalID: 462973698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_12
+      rect:
+        serializedVersion: 2
+        x: 2088
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 401b095591cac054e96b548816c00c75
+      internalID: -368607094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_13
+      rect:
+        serializedVersion: 2
+        x: 2262
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad65852bbb4f424685b0a93d3e88042
+      internalID: -1029090044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_14
+      rect:
+        serializedVersion: 2
+        x: 2436
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d0c50988002ae4f8033027121a55ac
+      internalID: -524735590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_15
+      rect:
+        serializedVersion: 2
+        x: 2610
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fd1c1205045184d99ae99e26f0e614
+      internalID: 1372037322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_16
+      rect:
+        serializedVersion: 2
+        x: 2784
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e20eeb6d13f3184080aff110fc57865
+      internalID: 1012084216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_17
+      rect:
+        serializedVersion: 2
+        x: 2958
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8a8e46163bc964293013554c5db7b5
+      internalID: -361520523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_18
+      rect:
+        serializedVersion: 2
+        x: 3132
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae4161669332944b86f62d9b9a938ea
+      internalID: 1797413545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_19
+      rect:
+        serializedVersion: 2
+        x: 3306
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e313c54d74bd5ce40b874e670f8c3553
+      internalID: -964294071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_20
+      rect:
+        serializedVersion: 2
+        x: 3480
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4a9e35509d12644bcc0a02219784e9
+      internalID: 1271910634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_21
+      rect:
+        serializedVersion: 2
+        x: 3654
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46674804229d75e49a7c04acb81383f5
+      internalID: 542987808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_22
+      rect:
+        serializedVersion: 2
+        x: 3828
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605384ab36a79fa4e8f41966597faee0
+      internalID: 359810958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_23
+      rect:
+        serializedVersion: 2
+        x: 4002
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81481bbf113ed5a42be168864318c494
+      internalID: 1259183695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_24
+      rect:
+        serializedVersion: 2
+        x: 4176
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1bd028ff5bc46247ac21c6d2467ff34
+      internalID: -419350862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_25
+      rect:
+        serializedVersion: 2
+        x: 4350
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad01c27d75df8cf4299b4f4f2f7355e2
+      internalID: 235079941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_26
+      rect:
+        serializedVersion: 2
+        x: 4524
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a26422f9a9edaf4291a15203ad43742
+      internalID: 2105023896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_27
+      rect:
+        serializedVersion: 2
+        x: 4698
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48132e493bf73b04caa84af54597bcf7
+      internalID: -757339169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_28
+      rect:
+        serializedVersion: 2
+        x: 4872
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16d82a56714080249b3a0490000edfce
+      internalID: -92960113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_29
+      rect:
+        serializedVersion: 2
+        x: 5046
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51df1fc1b30a56a4482032ed53959245
+      internalID: -542168613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_30
+      rect:
+        serializedVersion: 2
+        x: 5220
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca13b92980c1e141ae922200450f05d
+      internalID: -1650736932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_31
+      rect:
+        serializedVersion: 2
+        x: 5394
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6c0938129ae3e4fbec2ef67719228a
+      internalID: -168884853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: characterBunnyWiz_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 174
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59fe883a5ade0244c857e9f1d32efc1d
+      internalID: 77536693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      characterBunnyWiz_0: 2118883247
+      characterBunnyWiz_1: 708284282
+      characterBunnyWiz_10: 1469339118
+      characterBunnyWiz_11: 462973698
+      characterBunnyWiz_12: -368607094
+      characterBunnyWiz_13: -1029090044
+      characterBunnyWiz_14: -524735590
+      characterBunnyWiz_15: 1372037322
+      characterBunnyWiz_16: 1012084216
+      characterBunnyWiz_17: -361520523
+      characterBunnyWiz_18: 1797413545
+      characterBunnyWiz_19: -964294071
+      characterBunnyWiz_2: -709408018
+      characterBunnyWiz_20: 1271910634
+      characterBunnyWiz_21: 542987808
+      characterBunnyWiz_22: 359810958
+      characterBunnyWiz_23: 1259183695
+      characterBunnyWiz_24: -419350862
+      characterBunnyWiz_25: 235079941
+      characterBunnyWiz_26: 2105023896
+      characterBunnyWiz_27: -757339169
+      characterBunnyWiz_28: -92960113
+      characterBunnyWiz_29: -542168613
+      characterBunnyWiz_3: 1601927790
+      characterBunnyWiz_30: -1650736932
+      characterBunnyWiz_31: -168884853
+      characterBunnyWiz_32: 77536693
+      characterBunnyWiz_4: 507942664
+      characterBunnyWiz_5: 1760740908
+      characterBunnyWiz_6: -1071564397
+      characterBunnyWiz_7: -1561455152
+      characterBunnyWiz_8: -2031455976
+      characterBunnyWiz_9: -260505543
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

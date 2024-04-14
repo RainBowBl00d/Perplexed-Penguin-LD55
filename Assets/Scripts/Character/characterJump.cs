@@ -8,6 +8,7 @@ public class characterJump : MonoBehaviour
     [HideInInspector] public Rigidbody2D body;
     private characterGround ground;
     [HideInInspector] public Vector2 velocity;
+    public Animator animator;
 
     [Header("Jumping Stats")]
     [SerializeField, Range(2f, 5.5f)][Tooltip("Maximum jump height")] public float jumpHeight = 7.3f;
@@ -41,7 +42,7 @@ public class characterJump : MonoBehaviour
     private bool desiredJump;
     private float jumpBufferCounter;
     private float coyoteTimeCounter = 0;
-    private bool pressingJump;
+    public  bool pressingJump;
     public bool onGround;
     private bool currentlyJumping;
 
@@ -77,6 +78,7 @@ public class characterJump : MonoBehaviour
 
     void Update()
     {
+        animator.SetBool("pressing jump", currentlyJumping);
         setPhysics();
         OnJump();
         //Check if we're on ground, using Kit's Ground script
