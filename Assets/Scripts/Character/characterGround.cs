@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //This script is used by both movement and jump to detect when the character is touching the ground
@@ -12,13 +14,24 @@ public class characterGround : MonoBehaviour
 
         [Header("Layer Masks")]
         [SerializeField][Tooltip("Which layers are read as the ground")] private LayerMask groundLayer;
- 
 
-        private void Update()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
+                if (other.CompareTag("Ground") || other.CompareTag("Enemy"))
+                {
+                        onGround = true;
+                }
         }
+        
 
+        private void OnTriggerExit2D(Collider2D other)
+        {
+                if (other.CompareTag("Ground") || other.CompareTag("Enemey"))
+                {
+                        onGround = false;
+                }
+        }
+        
         //Send ground detection to other scripts
         public bool GetOnGround() { return onGround; }
 }
