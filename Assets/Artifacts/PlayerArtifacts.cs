@@ -5,13 +5,46 @@ public class PlayerArtifacts : MonoBehaviour
 {
     public List<Items> artifacts = new List<Items>();
 
-    [SerializeField] KeyCode violinkeyCode;
+    [SerializeField] KeyCode violinKeyCode;
+    [SerializeField] KeyCode harfKeyCode;
+    [SerializeField] KeyCode smallHarfKeyCode;
+    [SerializeField] KeyCode quitarKeyCode;
+    [SerializeField] KeyCode sazKeyCode;
+
+    float timeLeftHarf = 0f;
+    float timeLeftSmallHarf = 0f;
+
+    [SerializeField] float cooldownHarf = 0f;
+    [SerializeField] float cooldownSmallharf = 0f;
+
+
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(violinkeyCode))
+        timeLeftHarf += Time.deltaTime;
+        timeLeftSmallHarf += Time.deltaTime;
+        if (Input.GetKeyDown(violinKeyCode) && cooldownHarf <= timeLeftHarf)
         {
             UseVioln();
+            timeLeftHarf = 0f;
+        }
+        if (Input.GetKeyDown(harfKeyCode)  && cooldownSmallharf <= timeLeftSmallHarf)
+        {
+            UseHarf();
+            timeLeftSmallHarf = 0f;
+        }
+        if (Input.GetKeyDown(smallHarfKeyCode) && cooldownSmallharf <= timeLeftSmallHarf)
+        {
+            UseSmallHarf();
+        }
+        if (Input.GetKeyDown(quitarKeyCode))
+        {
+            UseGuitar();
+        }
+        if (Input.GetKeyDown(sazKeyCode))
+        {
+            UseSaz();
         }
     }
 
@@ -35,6 +68,46 @@ public class PlayerArtifacts : MonoBehaviour
             if (artifact.name == "Violin" && artifact.isActive)
             {
                 artifact.gameObject.GetComponent<ViolinPower>().Power();
+            }
+        }
+    }
+    public void UseHarf()
+    {
+        foreach (Items artifact in artifacts)
+        {
+            if (artifact.name == "Harf" && artifact.isActive)
+            {
+                artifact.gameObject.GetComponent<HarfPower>().Power();
+            }
+        }
+    }
+    public void UseSmallHarf()
+    {
+        foreach (Items artifact in artifacts)
+        {
+            if (artifact.name == "smallharf" && artifact.isActive)
+            {
+                artifact.gameObject.GetComponent<smallHarf>().Power();
+            }
+        }
+    }
+    public void UseGuitar()
+    {
+        foreach (Items artifact in artifacts)
+        {
+            if (artifact.name == "Guitar" && artifact.isActive)
+            {
+                artifact.gameObject.GetComponent<GuitarPower>().Power();
+            }
+        }
+    }
+    public void UseSaz()
+    {
+        foreach (Items artifact in artifacts)
+        {
+            if (artifact.name == "saz" && artifact.isActive)
+            {
+                artifact.gameObject.GetComponent<sazPower>().Power();
             }
         }
     }

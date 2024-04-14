@@ -1,20 +1,20 @@
-using Character;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-    public class CountDownText : MonoBehaviour
-    {
-        TMP_Text _timerText;
+public class CountDownText : MonoBehaviour
+{
+    TMP_Text _timerText;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            _timerText = GetComponent<TMP_Text>();
-            InvokeRepeating(nameof(updateTimer), 0, 1f);
-        }
+    // Start is called before the first frame update
+    void Start()
+    {
+        _timerText = GetComponent<TMP_Text>();
+        InvokeRepeating(nameof(updateTimer), 0, 1f);
+    }
         
 
+<<<<<<< Updated upstream
         void updateTimer()
         {   
             _timerText.text = gameObject.GetComponent<CountDown>().timeLeft.ToString();
@@ -32,7 +32,16 @@ using TMPro;
   
         #endregion
     
+=======
+    void updateTimer()
+    {   
+        Debug.Log(gameObject.GetComponent<CountDown>().timeLeft.ToString());
+        _timerText.text = gameObject.GetComponent<CountDown>().timeLeft.ToString();
+>>>>>>> Stashed changes
     }
+
+    
+}
     
     
 
