@@ -50,10 +50,7 @@ public class characterMovement : MonoBehaviour
         //This is called when you input a direction on a valid input type, such as arrow keys or analogue stick
         //The value will read -1 when pressing left, 0 when idle, and 1 when pressing right.
 
-        if (ground.GetOnGround())
-        {
-            directionX = Input.GetAxis("Horizontal");
-        }
+        directionX = Input.GetAxis("Horizontal");
     }
 
     private void Update()
@@ -61,7 +58,7 @@ public class characterMovement : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(velocity.x));
         OnMovement();
         //Used to stop movement when the character is playing her death animation
-        if (!ground.GetOnGround())
+        if (gameObject.GetComponent<Health>().health <= 0)
         {
             directionX = 0;
         }
@@ -115,16 +112,18 @@ public class characterMovement : MonoBehaviour
     private void runWithAcceleration()
     {
         //Set our acceleration, deceleration, and turn speed stats, based on whether we're on the ground on in the air
-
         acceleration = onGround ? maxAcceleration : maxAirAcceleration;
         deceleration = onGround ? maxDecceleration : maxAirDeceleration;
         turnSpeed = onGround ? maxTurnSpeed : maxAirTurnSpeed;
 
+
         if (pressingKey)
         {
+            Debug.Log(Mathf.Sign(directionX) != Mathf.Sign(velocity.x));
             //If the sign (i.e. positive or negative) of our input direction doesn't match our movement, it means we're turning around and so should use the turn speed stat.
             if (Mathf.Sign(directionX) != Mathf.Sign(velocity.x))
             {
+
                 maxSpeedChange = turnSpeed * Time.deltaTime;
             }
             else
