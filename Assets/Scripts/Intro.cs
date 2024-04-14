@@ -6,23 +6,27 @@ using UnityEngine.SceneManagement;
 public class Intro : MonoBehaviour
 {
     private int index = 1;
+    [SerializeField] private GameObject panel1;
+    [SerializeField] private GameObject panel2;
+    [SerializeField] private GameObject panel3;
+    [SerializeField] private GameObject panel4;
 
     public void buttonNext()
     {
         index += 1;
 
         switch (index) {
-            case 2 :
-                GameObject.Find("panel1").SetActive(false);
-                GameObject.Find("panel2").SetActive(true);
+            case 2 : 
+                panel1.SetActive(false);
+                panel2.SetActive(true);
                 return;
             case 3:
-                GameObject.Find("panel2").SetActive(false);
-                GameObject.Find("panel3").SetActive(true);
+                panel2.SetActive(false);
+                panel3.SetActive(true);
                 return;
             case 4:
-                GameObject.Find("panel3").SetActive(false);
-                GameObject.Find("panel4").SetActive(true);
+                panel3.SetActive(false);
+                panel4.SetActive(true);
                 return;
             case 5:
                 SceneManager.LoadScene(2);
@@ -30,15 +34,16 @@ public class Intro : MonoBehaviour
                 
         }
     }
-    // Start is called before the first frame update
-    void Start()
+    #region Instance Managment
+    public static Intro instance;
+    void InstanceAwake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else Destroy(gameObject);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
+    #endregion
 }
