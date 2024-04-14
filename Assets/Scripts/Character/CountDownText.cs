@@ -14,7 +14,6 @@ public class CountDownText : MonoBehaviour
     }
         
 
-<<<<<<< Updated upstream
         void updateTimer()
         {   
             _timerText.text = gameObject.GetComponent<CountDown>().timeLeft.ToString();
@@ -31,14 +30,7 @@ public class CountDownText : MonoBehaviour
         }
   
         #endregion
-    
-=======
-    void updateTimer()
-    {   
-        Debug.Log(gameObject.GetComponent<CountDown>().timeLeft.ToString());
-        _timerText.text = gameObject.GetComponent<CountDown>().timeLeft.ToString();
->>>>>>> Stashed changes
-    }
+
 
     
 }
