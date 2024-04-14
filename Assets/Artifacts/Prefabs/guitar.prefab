@@ -112,3 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  acceleration: 4
+  maxRange: 20
+  minSpeed: 4
+  maxSpeed: 20
