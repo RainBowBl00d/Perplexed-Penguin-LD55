@@ -119,8 +119,7 @@ public class characterMovement : MonoBehaviour
 
         if (pressingKey)
         {
-            Debug.Log(Mathf.Sign(directionX) != Mathf.Sign(velocity.x));
-            //If the sign (i.e. positive or negative) of our input direction doesn't match our movement, it means we're turning around and so should use the turn speed stat.
+           //If the sign (i.e. positive or negative) of our input direction doesn't match our movement, it means we're turning around and so should use the turn speed stat.
             if (Mathf.Sign(directionX) != Mathf.Sign(velocity.x))
             {
 

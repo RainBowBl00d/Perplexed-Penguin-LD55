@@ -220,6 +220,63 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_SortAtRoot: 0
+--- !u!1001 &84429594
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3885276649153051229, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.606781
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885276649153051229, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9969051
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885276649153051229, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885276649153051229, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885276649153051229, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885276649153051229, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885276649153051229, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885276649153051229, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885276649153051229, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885276649153051229, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512108912085709747, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
+      propertyPath: m_Name
+      value: Arrow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b9fe1718ada5a6c48ad50c24559b4d6e, type: 3}
 --- !u!1 &131521278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,6 +1927,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1240635648667357212, guid: d911bf4a06b170146857297385068962, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2114482565}
+    - targetCorrespondingSourceObject: {fileID: 1240635648667357212, guid: d911bf4a06b170146857297385068962, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2114482573}
   m_SourcePrefab: {fileID: 100100000, guid: d911bf4a06b170146857297385068962, type: 3}
 --- !u!1 &605457842
 GameObject:
@@ -7247,6 +7307,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2114482573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114482541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dff04179fb0e04b8bedffe48384fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifacts:
+  - name: Violin
+    isActive: 0
+    gameObject: {fileID: 8168708330966579141, guid: 5286b76bd310bab4ba594744699ba597, type: 3}
+  - name: Guitar
+    isActive: 0
+    gameObject: {fileID: 8674094279112282772, guid: 357f61bb3ad144448bd0732cfec24781, type: 3}
+  - name: smallharf
+    isActive: 0
+    gameObject: {fileID: 7993749475589730325, guid: 33a331bd477b9e64b9e9bdff4428b647, type: 3}
+  - name: saz
+    isActive: 0
+    gameObject: {fileID: 7160146483907207957, guid: 860ec8ac29339154986c22087b9def96, type: 3}
+  - name: Harf
+    isActive: 0
+    gameObject: {fileID: 4722007970315574466, guid: 2bc430884e2d62e48aeba42fd4c5a355, type: 3}
+  violinKeyCode: 49
+  harfKeyCode: 50
+  smallHarfKeyCode: 51
+  quitarKeyCode: 52
+  sazKeyCode: 53
+  cooldownHarf: 10
+  cooldownSmallharf: 10
 --- !u!1001 &2132654778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7347,3 +7442,4 @@ SceneRoots:
   - {fileID: 670893313}
   - {fileID: 2132654778}
   - {fileID: 1992169766}
+  - {fileID: 84429594}

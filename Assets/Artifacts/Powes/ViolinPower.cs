@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ViolinPower : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    GameObject player;
     GameObject clone;
 
     [Header("Attributes")]
@@ -10,39 +10,39 @@ public class ViolinPower : MonoBehaviour
     [SerializeField] int damage = 10;
     [SerializeField] float smashSpeed = 10f;
 
+    private void Start()
+    {
+    }
     public void Power()
     {
         if (clone != null)
         {
             return;
         }
+        player = GameObject.FindGameObjectWithTag("Player");
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 10f;
 
-        float distance = Vector2.Distance(player.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        Debug.Log(distance);
-        Debug.Log(maxRange);
+        float distance = Vector2.Distance(player.transform.position, Camera.main.ScreenToWorldPoint(mousePos));
         if (distance <= maxRange)
         {
             clone = Instantiate(gameObject);
+            clone.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+            clone.transform.position = new(clone.transform.position.x, clone.transform.position.y, 0f);
+            clone.GetComponent<Rigidbody2D>().gravityScale = 0f;
+            clone.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -smashSpeed);
 
-            clone.transform.position = new(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0f) ;
-
-            Rigidbody2D rbClone = clone.AddComponent<Rigidbody2D>();
-
-            rbClone.gravityScale = 0f;
-            rbClone.velocity = new Vector2(0f, -smashSpeed);
         }
         else
         {
-            Vector2 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
-            vec = Vector2.ClampMagnitude(vec, maxRange);
+            Vector2 vec = (Vector2)Camera.main.ScreenToWorldPoint(mousePos) - (Vector2)player.transform.position;
+            vec = vec.normalized * maxRange;
             Vector2 pos = new(vec.x + player.transform.position.x, vec.y + player.transform.position.y);
 
-            clone = Instantiate(gameObject);
-            clone.transform.position = pos;
+            clone = Instantiate(gameObject, pos, Quaternion.identity);
 
-            Rigidbody2D rbClone = clone.AddComponent<Rigidbody2D>();
-            rbClone.gravityScale = 0f;
-            rbClone.velocity = new Vector2(0f, -smashSpeed);
+            clone.GetComponent<Rigidbody2D>().gravityScale = 0f;
+            clone.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -smashSpeed);
         }
     }
 

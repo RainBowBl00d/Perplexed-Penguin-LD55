@@ -5,12 +5,12 @@ using UnityEngine;
 public class GuitarPower : MonoBehaviour
 {
     [SerializeField] float speed = 10f, acceleration = 4f;
-    [SerializeField] float maxRange = 20f;
+    [SerializeField] float maxRange = 20f, summonTime = 15;
     [SerializeField] float minSpeed = 4f, maxSpeed = 20f;
-    Vector2 mousePos;
+    Vector3 mousePos;
     GameObject clone;
-    Vector2 desiredDirection;
-    Vector2 desiredForce;
+    float timeleft = 0;
+
     public void Power()
     {
         if (clone != null)
@@ -23,11 +23,19 @@ public class GuitarPower : MonoBehaviour
     }
     private void Update()
     {
+        timeleft += Time.deltaTime;
+        if(timeleft >= summonTime)
+        {
+            Destroy(gameObject);
+        }
         if (!gameObject.GetComponent<Rigidbody2D>())
         {
             return;
         }
-        transform.position = Vector2.MoveTowards(transform.position, mousePos, speed) ;
+        mousePos = Input.mousePosition;
+        mousePos = new Vector3 (mousePos.x, mousePos.y, 10f);
+        Vector3 wMousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        transform.position = Vector2.MoveTowards(transform.position, wMousePos, speed) ;
 
     }
 

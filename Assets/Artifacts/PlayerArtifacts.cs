@@ -24,17 +24,17 @@ public class PlayerArtifacts : MonoBehaviour
     {
         timeLeftHarf += Time.deltaTime;
         timeLeftSmallHarf += Time.deltaTime;
-        if (Input.GetKeyDown(violinKeyCode) && cooldownHarf <= timeLeftHarf)
+        if (Input.GetKeyDown(violinKeyCode) )
         {
             UseVioln();
-            timeLeftHarf = 0f;
         }
         if (Input.GetKeyDown(harfKeyCode)  && cooldownSmallharf <= timeLeftSmallHarf)
         {
             UseHarf();
-            timeLeftSmallHarf = 0f;
+            timeLeftHarf = 0f;
+
         }
-        if (Input.GetKeyDown(smallHarfKeyCode) && cooldownSmallharf <= timeLeftSmallHarf)
+        if (Input.GetKeyDown(smallHarfKeyCode) && cooldownHarf <= timeLeftHarf)
         {
             UseSmallHarf();
         }
