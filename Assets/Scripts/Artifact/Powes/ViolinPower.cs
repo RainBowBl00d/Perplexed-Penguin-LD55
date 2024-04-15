@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ViolinPower : MonoBehaviour
 {
@@ -20,14 +21,13 @@ public class ViolinPower : MonoBehaviour
             return;
         }
         player = GameObject.FindGameObjectWithTag("Player");
-        Vector3 mousePos = Input.mousePosition;
+        Vector3 mousePos = Mouse.current.position.ReadValue();
         mousePos.z = 10f;
-
         float distance = Vector2.Distance(player.transform.position, Camera.main.ScreenToWorldPoint(mousePos));
         if (distance <= maxRange)
         {
             clone = Instantiate(gameObject);
-            clone.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+            clone.transform.position = Camera.main.ScreenToWorldPoint(mousePos); ;
             clone.transform.position = new(clone.transform.position.x, clone.transform.position.y, 0f);
             clone.GetComponent<Rigidbody2D>().gravityScale = 0f;
             clone.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -smashSpeed);

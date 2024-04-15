@@ -16,8 +16,17 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public Animator myAnimator;
 
     [Header("Player Statistics")]
+    [SerializeField] public float timeLeftTilEnd;
     [SerializeField] public Health health;
-    [SerializeField] public Health mana;
+    [SerializeField] public Mana mana;
+    [SerializeField] public int manaCostViolin;
+    [SerializeField] public int manaCostGuitar;
+    [SerializeField] public int manaCostHarf;
+    [SerializeField] public int manaCostSmallHarf;
+    [SerializeField] public int manaCostSaxaphone;
+    [SerializeField] public int manaRegeneration;
+    [SerializeField] public int healthRegeneration;
+
 
 
     [Header("Camera setting")]
@@ -51,8 +60,9 @@ public class PlayerStats : MonoBehaviour
     [SerializeField, Range(0f, 0.3f)] [Tooltip("How far from ground should we cache your jump?")] public float jumpBuffer = 0.15f;
     [Tooltip("When false, the charcter will skip acceleration and deceleration and instantly move and stop")] public bool useAcceleration;
 
-    [Header("Tag")]
+    [Header("Tags")]
     public string groundTag;
+    public string enemyTag;
 
     [Header("Current State")]
     public bool onGround;
@@ -69,4 +79,15 @@ public class PlayerStats : MonoBehaviour
     public bool landSqueezing;
     public bool playerGrounded;
     public Vector2 velocity;
+
+    private void Update()
+    {
+        health.AddHealth(healthRegeneration);
+        mana.AddHealth(manaRegeneration);
+        timeLeftTilEnd -= Time.deltaTime;
+        if(timeLeftTilEnd< 0)
+        {
+            health.Death();
+        }
+    }
 }

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Health : MonoBehaviour
+public class Mana : MonoBehaviour
 {
     // Property's
     public int health;
     public int maxHealth;
 
     // Health Mechanics
-    public void SubtractHealt( int damageTaken)
+    public void SubtractHealt(int damageTaken)
     {
         health -= damageTaken;
         if (health <= 0) Death();
@@ -27,8 +27,7 @@ public class Health : MonoBehaviour
 
     public void Death()
     {
-        if(gameObject.tag == "Player") SceneManager.LoadScene (sceneName:"GameOver");
         Destroy(gameObject);
-        
+
     }
 }

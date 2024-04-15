@@ -8,7 +8,6 @@ public class smallHarf : MonoBehaviour
     [SerializeField] int healing;
     public void Power()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<Health>().AddHealth(healing);
+        PlayerStats.instance.health.AddHealth(healing);
     }
 }
