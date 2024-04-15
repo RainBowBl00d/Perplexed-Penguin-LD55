@@ -99,12 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de2e90d1297eea448df2be8a165c5b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  acceleration: 4
-  maxRange: 20
-  summonTime: 15
-  minSpeed: 4
-  maxSpeed: 20
+  speed: 200
+  maxRange: 4.35
+  radius: 5
+  damage: 137
 --- !u!58 &-5977178602704099905
 CircleCollider2D:
   m_ObjectHideFlags: 0

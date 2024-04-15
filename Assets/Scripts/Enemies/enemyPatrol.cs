@@ -5,13 +5,12 @@ using UnityEngine.UIElements;
 
 public class enemyPatrol : MonoBehaviour
 {
-    public GameObject pointA;
-    public GameObject pointB;
     private Rigidbody2D rb;
     //private Animator anim;
-    private Transform currentPoint;
+    private Vector2 direction;
     public float speed;
     int damage = 30;
+    float timeLeft = 0f;
 
     
     
@@ -21,7 +20,7 @@ public class enemyPatrol : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
         //anim = GetComponent<Animator>();
-        currentPoint = pointB.transform;
+        direction = Vector2.right;
         //anim.SetBool("isRunning", true);
 
     }
@@ -30,23 +29,13 @@ public class enemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 point = currentPoint.position - transform.position;
-        if (currentPoint == pointB.transform)
+        timeLeft += Time.deltaTime;
+        rb.velocity = speed * direction;
+        if (timeLeft > 5f)
         {
-            rb.velocity = new Vector2(speed, 0);
-        }
-        else
-        {
-            rb.velocity = new Vector2(-speed, 0);
-        }
-
-        if (Vector2.Distance(transform.position, currentPoint.position)< 0.5f && currentPoint == pointB.transform)
-        {
-            currentPoint = pointA.transform;
-        }
-        if (Vector2.Distance(transform.position, currentPoint.position)< 0.5f && currentPoint == pointA.transform)
-        {
-            currentPoint = pointB.transform;
+            timeLeft = 0f;
+            direction = -direction;
+            GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
         }
 
     }
@@ -55,6 +44,14 @@ public class enemyPatrol : MonoBehaviour
         if(collision.tag == "Player")
         {
             collision.gameObject.GetComponent<Health>().SubtractHealt(damage);
+            direction = -direction;
+            GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
         }
+        else if(collision.tag == PlayerStats.instance.tag)
+        {
+            direction = -direction;
+            GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+        }
+
     }
 }

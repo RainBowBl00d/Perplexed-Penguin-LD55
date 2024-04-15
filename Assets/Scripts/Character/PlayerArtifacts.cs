@@ -23,8 +23,9 @@ public class PlayerArtifacts : MonoBehaviour
         if (!context.ReadValueAsButton()) return;
         foreach (Items artifact in PlayerStats.instance.artifacts)
         {
-            if (artifact.name == "Violin" && artifact.isActive)
+            if (artifact.name == "Violin" && artifact.isActive && PlayerStats.instance.mana.health > PlayerStats.instance.manaCostViolin)
             {
+                PlayerStats.instance.mana.SubtractHealt(PlayerStats.instance.manaCostViolin);
                 artifact.gameObject.GetComponent<ViolinPower>().Power();
                 
             }
@@ -35,8 +36,9 @@ public class PlayerArtifacts : MonoBehaviour
         if (!context.ReadValueAsButton()) return;
         foreach (Items artifact in PlayerStats.instance.artifacts)
         {
-            if (artifact.name == "Harf" && artifact.isActive)
+            if (artifact.name == "Harf" && artifact.isActive && PlayerStats.instance.mana.health > PlayerStats.instance.manaCostHarf)
             {
+                PlayerStats.instance.mana.SubtractHealt(PlayerStats.instance.manaCostHarf);
                 artifact.gameObject.GetComponent<HarfPower>().Power();
             }
         }
@@ -46,8 +48,9 @@ public class PlayerArtifacts : MonoBehaviour
         if (!context.ReadValueAsButton()) return;
         foreach (Items artifact in PlayerStats.instance.artifacts)
         {
-            if (artifact.name == "Small Harf" && artifact.isActive)
+            if (artifact.name == "Small Harf" && artifact.isActive && PlayerStats.instance.mana.health > PlayerStats.instance.manaCostSmallHarf)
             {
+                PlayerStats.instance.mana.SubtractHealt(PlayerStats.instance.manaCostSmallHarf);
                 artifact.gameObject.GetComponent<smallHarf>().Power();
             }
         }
@@ -58,8 +61,9 @@ public class PlayerArtifacts : MonoBehaviour
         if (!context.ReadValueAsButton()) return;
         foreach (Items artifact in PlayerStats.instance.artifacts)
         {
-            if (artifact.name == "Guitar" && artifact.isActive)
+            if (artifact.name == "Guitar" && artifact.isActive && PlayerStats.instance.mana.health > PlayerStats.instance.manaCostGuitar)
             {
+                PlayerStats.instance.mana.SubtractHealt(PlayerStats.instance.manaCostGuitar);
                 artifact.gameObject.GetComponent<GuitarPower>().Power();
             }
         }
@@ -69,8 +73,9 @@ public class PlayerArtifacts : MonoBehaviour
         if (!context.ReadValueAsButton()) return;
         foreach (Items artifact in PlayerStats.instance.artifacts)
         {
-            if (artifact.name == "Saxaphone" && artifact.isActive)
+            if (artifact.name == "Saxaphone" && artifact.isActive && PlayerStats.instance.mana.health > PlayerStats.instance.manaCostSaxaphone)
             {
+                PlayerStats.instance.mana.SubtractHealt(PlayerStats.instance.manaCostSaxaphone);
                 artifact.gameObject.GetComponent<sazPower>().Power();
             }
         }

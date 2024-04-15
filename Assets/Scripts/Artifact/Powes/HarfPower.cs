@@ -7,6 +7,7 @@ public class HarfPower : MonoBehaviour
     [SerializeField] int addTime;
     public void Power()
     {
-        CountDown.instance.timeLeft += addTime;
+        if (addTime + PlayerStats.instance.timeLeftTilEnd > 120f) return;
+        PlayerStats.instance.timeLeftTilEnd += addTime;
     }
 }

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 1392520738207715604}
   - component: {fileID: 4860349519190223203}
   - component: {fileID: 7285298387414142222}
-  - component: {fileID: 1788396636036174539}
+  - component: {fileID: 7378096425074416059}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -311,8 +311,16 @@ MonoBehaviour:
     gameObject: {fileID: 7160146483907207957, guid: 860ec8ac29339154986c22087b9def96, type: 3}
     picture: {fileID: 0}
   myAnimator: {fileID: 1392520738207715604}
+  timeLeftTilEnd: 120
   health: {fileID: 6724188776968374941}
-  mana: {fileID: 1788396636036174539}
+  mana: {fileID: 7378096425074416059}
+  manaCostViolin: 10
+  manaCostGuitar: 10
+  manaCostHarf: 10
+  manaCostSmallHarf: 10
+  manaCostSaxaphone: 10
+  manaRegeneration: 1
+  healthRegeneration: 1
   yCameraOffset: 0
   cameraLookAhead: 6.82
   cameraMoveSpeed: 3.12
@@ -337,6 +345,7 @@ MonoBehaviour:
   jumpBuffer: 0.15
   useAcceleration: 1
   groundTag: Ground
+  enemyTag: Enemy
   onGround: 0
   pressingKey: 0
   characterCanMove: 1
@@ -488,6 +497,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 47fde413-5dab-4e6e-8967-cd28e1a1b404
     m_ActionName: Player/Harf[/Keyboard/5]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8c97c52e-d9e1-4c86-b641-1f474db81cc8
+    m_ActionName: Player/Mouse[/Mouse/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -538,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af5799dd755b884ba5e8eafc6f73d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1788396636036174539
+--- !u!114 &7378096425074416059
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -547,8 +560,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240635648667357212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d954a0b7576ae4448b528aacce6b13f, type: 3}
+  m_Script: {fileID: 11500000, guid: 717a88d9c1743fc409f108ad8ec2b2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
+  health: 200
+  maxHealth: 200
