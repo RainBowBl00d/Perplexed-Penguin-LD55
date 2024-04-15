@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 470821164917543836}
   - component: {fileID: 5099823132814857820}
   - component: {fileID: 5475994998915872544}
-  - component: {fileID: 5274700593419039346}
   - component: {fileID: 120274269926060269}
   - component: {fileID: 6883730738947047114}
+  - component: {fileID: 607114009646571884}
   m_Layer: 0
   m_Name: Violin
   m_TagString: Artifact
@@ -123,19 +123,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.64
---- !u!114 &5274700593419039346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8168708330966579141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 662f03005b0851f44b6dbfaa1cbdc3f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identify: Violin
 --- !u!114 &120274269926060269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +165,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &607114009646571884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168708330966579141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662f03005b0851f44b6dbfaa1cbdc3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identify: Violin

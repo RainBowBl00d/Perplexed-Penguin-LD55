@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     // Property's
     public int health;
+    public int maxHealth;
 
     // Health Mechanics
     public void SubtractHealt( int damageTaken)

@@ -9,12 +9,16 @@ public class PlayerStats : MonoBehaviour
     {
         instance = this;
     }
+    [Header("Artifacts")]
+    public List<Items> artifacts = new List<Items>();
 
     [Header("Animation")]
     [SerializeField] public Animator myAnimator;
 
     [Header("Player Statistics")]
     [SerializeField] public Health health;
+    [SerializeField] public Health mana;
+
 
     [Header("Camera setting")]
     [SerializeField] public float yCameraOffset = 0f;
