@@ -7,8 +7,8 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    public void ExitGame()
+    public void ExitToIntro()
     {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 }

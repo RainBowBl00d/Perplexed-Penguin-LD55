@@ -351,7 +351,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1240635648667357212, guid: d911bf4a06b170146857297385068962, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1852798716}
+      addedObject: {fileID: 1852798725}
+    - targetCorrespondingSourceObject: {fileID: 1240635648667357212, guid: d911bf4a06b170146857297385068962, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1852798724}
+    - targetCorrespondingSourceObject: {fileID: 1240635648667357212, guid: d911bf4a06b170146857297385068962, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1852798726}
   m_SourcePrefab: {fileID: 100100000, guid: d911bf4a06b170146857297385068962, type: 3}
 --- !u!1 &1100082442
 GameObject:
@@ -495,7 +501,58 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1240635648667357212, guid: d911bf4a06b170146857297385068962, type: 3}
   m_PrefabInstance: {fileID: 298993426}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1852798716
+--- !u!114 &1852798724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852798715}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db4452464e4ada48835558a07224c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnimator: {fileID: 0}
+  characterSprite: {fileID: 0}
+  moveParticles: {fileID: 0}
+  jumpParticles: {fileID: 0}
+  landParticles: {fileID: 0}
+  jumpSFX: {fileID: 0}
+  landSFX: {fileID: 0}
+  squashAndStretch: 0
+  jumpSquashSettings: {x: 0, y: 0, z: 0}
+  landSquashSettings: {x: 0, y: 0, z: 0}
+  landSqueezeMultiplier: 0
+  jumpSqueezeMultiplier: 0
+  landDrop: 1
+  leanForward: 0
+  maxTilt: 0
+  tiltSpeed: 0
+  runningSpeed: 0
+  maxSpeed: 0
+--- !u!114 &1852798725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852798715}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bbd9e70c430b545b7b851c9a52808e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointFlag: {x: 0, y: 0, z: 0}
+  myAnim: {fileID: 0}
+  hurtSFX: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  respawnTime: 0
+  flashDuration: 0
+  onHurt:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1852798726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -504,32 +561,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1852798715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30dff04179fb0e04b8bedffe48384fe1, type: 3}
+  m_Script: {fileID: 11500000, guid: c66bbc39739d87f49a7940ce88d4319e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  artifacts:
-  - name: Violin
-    isActive: 0
-    gameObject: {fileID: 8168708330966579141, guid: 5286b76bd310bab4ba594744699ba597, type: 3}
-  - name: smallharf
-    isActive: 0
-    gameObject: {fileID: 7993749475589730325, guid: 33a331bd477b9e64b9e9bdff4428b647, type: 3}
-  - name: Harf
-    isActive: 0
-    gameObject: {fileID: 4722007970315574466, guid: 2bc430884e2d62e48aeba42fd4c5a355, type: 3}
-  - name: Guitar
-    isActive: 0
-    gameObject: {fileID: 8674094279112282772, guid: 357f61bb3ad144448bd0732cfec24781, type: 3}
-  - name: saz
-    isActive: 0
-    gameObject: {fileID: 7160146483907207957, guid: 860ec8ac29339154986c22087b9def96, type: 3}
-  violinKeyCode: 49
-  harfKeyCode: 50
-  smallHarfKeyCode: 51
-  quitarKeyCode: 52
-  sazKeyCode: 53
-  cooldownHarf: 20
-  cooldownSmallharf: 20
+  maxSpeed: 10
+  maxAcceleration: 52
+  maxDecceleration: 52
+  maxTurnSpeed: 80
+  maxAirAcceleration: 0
+  maxAirDeceleration: 0
+  maxAirTurnSpeed: 80
+  friction: 0
+  jumpHeight: 7.3
+  timeToJumpApex: 0
+  upwardMovementMultiplier: 1
+  downwardMovementMultiplier: 6.17
+  maxAirJumps: 0
+  variablejumpHeight: 0
+  jumpCutOff: 0
+  speedLimit: 0
+  coyoteTime: 0.15
+  jumpBuffer: 0.15
+  useAcceleration: 0
+  groundTag: 
+  groundLength: 0.95
+  colliderOffset: {x: 0, y: 0, z: 0}
+  onGround: 0
+  pressingKey: 0
+  characterCanMove: 0
+  canJumpAgain: 0
+  desiredJump: 0
+  jumpBufferCounter: 0
+  coyoteTimeCounter: 0
+  pressingJump: 0
+  currentlyJumping: 0
+  squeezing: 0
+  jumpSqueezing: 0
+  landSqueezing: 0
+  playerGrounded: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

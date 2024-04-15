@@ -1,50 +1,20 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 //This script handles moving the character on the Y axis, for jumping and gravity
 
 public class characterJump : MonoBehaviour
 {
-    [Header("Components")]
-    [HideInInspector] public Rigidbody2D body;
+    private Rigidbody2D body;
     private characterGround ground;
-    [HideInInspector] public Vector2 velocity;
-    public Animator animator;
-
-    [Header("Jumping Stats")]
-    [SerializeField, Range(2f, 5.5f)][Tooltip("Maximum jump height")] public float jumpHeight = 7.3f;
-
-
-//If you're using your stats from Platformer Toolkit with this character controller, please note that the number on the Jump Duration handle does not match this stat
-//It is re-scaled, from 0.2f - 1.25f, to 1 - 10.
-//You can transform the number on screen to the stat here, using the function at the bottom of this script
-
-
-
-    [SerializeField, Range(0.2f, 1.25f)][Tooltip("How long it takes to reach that height before coming back down")] public float timeToJumpApex;
-    [SerializeField, Range(0f, 5f)][Tooltip("Gravity multiplier to apply when going up")] public float upwardMovementMultiplier = 1f;
-    [SerializeField, Range(1f, 10f)][Tooltip("Gravity multiplier to apply when coming down")] public float downwardMovementMultiplier = 6.17f;
-    [SerializeField, Range(0, 1)][Tooltip("How many times can you jump in the air?")] public int maxAirJumps = 0;
-
-    [Header("Options")]
-    [Tooltip("Should the character drop when you let go of jump?")] public bool variablejumpHeight;
-    [SerializeField, Range(1f, 10f)][Tooltip("Gravity multiplier when you let go of jump")] public float jumpCutOff;
-    [SerializeField][Tooltip("The fastest speed the character can fall")] public float speedLimit;
-    [SerializeField, Range(0f, 0.3f)][Tooltip("How long should coyote time last?")] public float coyoteTime = 0.15f;
-    [SerializeField, Range(0f, 0.3f)][Tooltip("How far from ground should we cache your jump?")] public float jumpBuffer = 0.15f;
+    private characterJuice juice;
 
     [Header("Calculations")]
     public float jumpSpeed;
+    public Vector2 velocity;
     private float defaultGravityScale;
     public float gravMultiplier;
 
-    [Header("Current State")]
-    public bool canJumpAgain = false;
-    private bool desiredJump;
-    private float jumpBufferCounter;
-    private float coyoteTimeCounter = 0;
-    public  bool pressingJump;
-    public bool onGround;
-    private bool currentlyJumping;
 
     void Awake()
     {
@@ -52,70 +22,73 @@ public class characterJump : MonoBehaviour
 
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<characterGround>();
+        juice = GetComponentInChildren<characterJuice>();
         defaultGravityScale = 1f;
     }
 
-    public void OnJump()
+    public void OnJump(InputAction.CallbackContext context)
     {
+        //This function is called when one of the jump buttons (like space or the A button) is pressed.
 
+        if (PlayerStats.instance.characterCanMove)
+        {
             //When we press the jump button, tell the script that we desire a jump.
             //Also, use the started and canceled contexts to know if we're currently holding the button
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            desiredJump = true;
-            pressingJump = true;
-        }
+            if (context.started)
+            {
+                PlayerStats.instance.desiredJump = true;
+                PlayerStats.instance.pressingJump = true;
+            }
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            pressingJump = false;
+            if (context.canceled)
+            {
+                PlayerStats.instance.pressingJump = false;
+            }
         }
-        
     }
 
     void Update()
     {
-        animator.SetBool("pressing jump", currentlyJumping);
         setPhysics();
-        OnJump();
+
         //Check if we're on ground, using Kit's Ground script
-        onGround = ground.GetOnGround();
+        PlayerStats.instance.onGround = ground.GetOnGround();
 
         //Jump buffer allows us to queue up a jump, which will play when we next hit the ground
-        if (jumpBuffer > 0)
+        if (PlayerStats.instance.jumpBuffer > 0)
         {
             //Instead of immediately turning off "desireJump", start counting up...
             //All the while, the DoAJump function will repeatedly be fired off
-            if (desiredJump)
+            if (PlayerStats.instance.desiredJump)
             {
-                jumpBufferCounter += Time.deltaTime;
+                PlayerStats.instance.jumpBufferCounter += Time.deltaTime;
 
-                if (jumpBufferCounter > jumpBuffer)
+                if (PlayerStats.instance.jumpBufferCounter > PlayerStats.instance.jumpBuffer)
                 {
                     //If time exceeds the jump buffer, turn off "desireJump"
-                    desiredJump = false;
-                    jumpBufferCounter = 0;
+                    PlayerStats.instance.desiredJump = false;
+                    PlayerStats.instance.jumpBufferCounter = 0;
                 }
             }
         }
 
         //If we're not on the ground and we're not currently jumping, that means we've stepped off the edge of a platform.
         //So, start the coyote time counter...
-        if (!currentlyJumping && !onGround)
+        if (!PlayerStats.instance.currentlyJumping && !PlayerStats.instance.onGround)
         {
-            coyoteTimeCounter += Time.deltaTime;
+            PlayerStats.instance.coyoteTimeCounter += Time.deltaTime;
         }
         else
         {
             //Reset it when we touch the ground, or jump
-            coyoteTimeCounter = 0;
+            PlayerStats.instance.coyoteTimeCounter = 0;
         }
     }
 
     private void setPhysics()
     {
         //Determine the character's gravity scale, using the stats provided. Multiply it by a gravMultiplier, used later
-        Vector2 newGravity = new Vector2(0, (-2 * jumpHeight) / (timeToJumpApex * timeToJumpApex));
+        Vector2 newGravity = new Vector2(0, (-2 * PlayerStats.instance.jumpHeight) / (PlayerStats.instance.timeToJumpApex * PlayerStats.instance.timeToJumpApex));
         body.gravityScale = (newGravity.y / Physics2D.gravity.y) * gravMultiplier;
     }
 
@@ -125,7 +98,7 @@ public class characterJump : MonoBehaviour
         velocity = body.velocity;
 
         //Keep trying to do a jump, for as long as desiredJump is true
-        if (desiredJump)
+        if (PlayerStats.instance.desiredJump)
         {
             DoAJump();
             body.velocity = velocity;
@@ -145,7 +118,7 @@ public class characterJump : MonoBehaviour
         //If Kit is going up...
         if (body.velocity.y > 0.01f)
         {
-            if (onGround)
+            if (PlayerStats.instance.onGround)
             {
                 //Don't change it if Kit is stood on something (such as a moving platform)
                 gravMultiplier = defaultGravityScale;
@@ -153,22 +126,22 @@ public class characterJump : MonoBehaviour
             else
             {
                 //If we're using variable jump height...)
-                if (variablejumpHeight)
+                if (PlayerStats.instance.variablejumpHeight)
                 {
                     //Apply upward multiplier if player is rising and holding jump
-                    if (pressingJump && currentlyJumping)
+                    if (PlayerStats.instance.pressingJump && PlayerStats.instance.currentlyJumping)
                     {
-                        gravMultiplier = upwardMovementMultiplier;
+                        gravMultiplier = PlayerStats.instance.upwardMovementMultiplier;
                     }
                     //But apply a special downward multiplier if the player lets go of jump
                     else
                     {
-                        gravMultiplier = jumpCutOff;
+                        gravMultiplier = PlayerStats.instance.jumpCutOff;
                     }
                 }
                 else
                 {
-                    gravMultiplier = upwardMovementMultiplier;
+                    gravMultiplier = PlayerStats.instance.upwardMovementMultiplier;
                 }
             }
         }
@@ -177,7 +150,7 @@ public class characterJump : MonoBehaviour
         else if (body.velocity.y < -0.01f)
         {
 
-            if (onGround)
+            if (PlayerStats.instance.onGround)
             //Don't change it if Kit is stood on something (such as a moving platform)
             {
                 gravMultiplier = defaultGravityScale;
@@ -185,16 +158,16 @@ public class characterJump : MonoBehaviour
             else
             {
                 //Otherwise, apply the downward gravity multiplier as Kit comes back to Earth
-                gravMultiplier = downwardMovementMultiplier;
+                gravMultiplier = PlayerStats.instance.downwardMovementMultiplier;
             }
 
         }
         //Else not moving vertically at all
         else
         {
-            if (onGround)
+            if (PlayerStats.instance.onGround)
             {
-                currentlyJumping = false;
+                PlayerStats.instance.currentlyJumping = false;
             }
 
             gravMultiplier = defaultGravityScale;
@@ -202,24 +175,24 @@ public class characterJump : MonoBehaviour
 
         //Set the character's Rigidbody's velocity
         //But clamp the Y variable within the bounds of the speed limit, for the terminal velocity assist option
-        body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -speedLimit, 100));
+        body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -PlayerStats.instance.speedLimit, 100));
     }
 
     private void DoAJump()
     {
 
         //Create the jump, provided we are on the ground, in coyote time, or have a double jump available
-        if (onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime) || canJumpAgain)
+        if (PlayerStats.instance.onGround || (PlayerStats.instance.coyoteTimeCounter > 0.03f && PlayerStats.instance.coyoteTimeCounter < PlayerStats.instance.coyoteTime) || PlayerStats.instance.canJumpAgain)
         {
-            desiredJump = false;
-            jumpBufferCounter = 0;
-            coyoteTimeCounter = 0;
+            PlayerStats.instance.desiredJump = false;
+            PlayerStats.instance.jumpBufferCounter = 0;
+            PlayerStats.instance.coyoteTimeCounter = 0;
 
             //If we have double jump on, allow us to jump again (but only once)
-            canJumpAgain = (maxAirJumps == 1 && canJumpAgain == false);
+            PlayerStats.instance.canJumpAgain = (PlayerStats.instance.maxAirJumps == 1 && PlayerStats.instance.canJumpAgain == false);
 
             //Determine the power of the jump, based on our gravity and stats
-            jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * body.gravityScale * jumpHeight);
+            jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * body.gravityScale * PlayerStats.instance.jumpHeight);
 
             //If Kit is moving up or down when she jumps (such as when doing a double jump), change the jumpSpeed;
             //This will ensure the jump is the exact same strength, no matter your velocity.
@@ -234,13 +207,19 @@ public class characterJump : MonoBehaviour
 
             //Apply the new jumpSpeed to the velocity. It will be sent to the Rigidbody in FixedUpdate;
             velocity.y += jumpSpeed;
-            currentlyJumping = true;
+            PlayerStats.instance.currentlyJumping = true;
+
+            if (juice != null)
+            {
+                //Apply the jumping effects on the juice script
+                juice.jumpEffects();
+            }
         }
 
-        if (jumpBuffer == 0)
+        if (PlayerStats.instance.jumpBuffer == 0)
         {
             //If we don't have a jump buffer, then turn off desiredJump immediately after hitting jumping
-            desiredJump = false;
+            PlayerStats.instance.desiredJump = false;
         }
     }
 
@@ -249,26 +228,4 @@ public class characterJump : MonoBehaviour
         //Used by the springy pad
         body.AddForce(Vector2.up * bounceAmount, ForceMode2D.Impulse);
     }
-
-
-/*
-
-timeToApexStat = scale(1, 10, 0.2f, 2.5f, numberFromPlatformerToolkit)
-
-
-  public float scale(float OldMin, float OldMax, float NewMin, float NewMax, float OldValue)
-    {
-
-        float OldRange = (OldMax - OldMin);
-        float NewRange = (NewMax - NewMin);
-        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
-
-        return (NewValue);
-    }
-
-*/
-
-
-
-
 }

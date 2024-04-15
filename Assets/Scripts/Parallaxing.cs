@@ -19,7 +19,6 @@ public class Parallaxing : MonoBehaviour
         cam = Camera.main.transform;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         previousCamPos = cam.position;
@@ -30,7 +29,6 @@ public class Parallaxing : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         for (int i = 0; i < backgrounds.Length; i++)
