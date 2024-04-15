@@ -126,7 +126,6 @@ public class characterHurt : MonoBehaviour
     {
         transform.position = checkpointFlag;
         PlayerStats.instance.characterCanMove = true;
-        PlayerStats.instance.myAnimator.SetTrigger("Okay");
         hurting = false;
     }
 }

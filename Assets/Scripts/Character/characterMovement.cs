@@ -48,7 +48,7 @@ public class characterMovement : MonoBehaviour
     private void Update()
     {
         PlayerStats.instance.myAnimator.SetFloat("Speed",Mathf.Abs(velocity.x));
-
+        PlayerStats.instance.velocity.x = velocity.x;
         //Used to stop movement when the character is playing her death animation
         if (!PlayerStats.instance.characterCanMove)
         {

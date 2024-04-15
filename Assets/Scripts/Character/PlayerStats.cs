@@ -13,6 +13,11 @@ public class PlayerStats : MonoBehaviour
     [Header("Animation")]
     [SerializeField] public Animator myAnimator;
 
+    [Header("Camera setting")]
+    [SerializeField] public float yCameraOffset = 0f;
+    [SerializeField] public float cameraLookAhead = 0f;
+    [SerializeField] public float cameraMoveSpeed = 1f;
+    [SerializeField, Range(0.01f, 15f)] public float ScreenSize = 10f;
 
     [Header("Movement Stats")]
     [SerializeField, Range(0f, 20f)] [Tooltip("Maximum movement speed")] public float maxSpeed = 10f;
@@ -42,10 +47,6 @@ public class PlayerStats : MonoBehaviour
     [Header("Tag")]
     public string groundTag;
 
-    [Header("Collider Settings")]
-    [SerializeField] [Tooltip("Length of the ground-checking collider")] public float groundLength = 0.95f;
-    [SerializeField] [Tooltip("Distance between the ground-checking colliders")] public Vector3 colliderOffset;
-
     [Header("Current State")]
     public bool onGround;
     public bool pressingKey;
@@ -60,4 +61,5 @@ public class PlayerStats : MonoBehaviour
     public bool jumpSqueezing;
     public bool landSqueezing;
     public bool playerGrounded;
+    public Vector2 velocity;
 }
