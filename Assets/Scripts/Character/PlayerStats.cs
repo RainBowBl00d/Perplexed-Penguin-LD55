@@ -10,6 +10,10 @@ public class PlayerStats : MonoBehaviour
         instance = this;
     }
 
+    [Header("Animation")]
+    [SerializeField] public Animator myAnimator;
+
+
     [Header("Movement Stats")]
     [SerializeField, Range(0f, 20f)] [Tooltip("Maximum movement speed")] public float maxSpeed = 10f;
     [SerializeField, Range(0f, 100f)] [Tooltip("How fast to reach max speed")] public float maxAcceleration = 52f;

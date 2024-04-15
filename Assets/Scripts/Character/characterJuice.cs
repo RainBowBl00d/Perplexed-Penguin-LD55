@@ -9,7 +9,6 @@ public class characterJuice : MonoBehaviour
     [Header("Components")]
     characterMovement moveScript;
     characterJump jumpScript;
-    [SerializeField] Animator myAnimator;
     [SerializeField] GameObject characterSprite;
 
     [Header("Components - Particles")]
@@ -51,8 +50,6 @@ public class characterJuice : MonoBehaviour
 
         //We need to change the character's running animation to suit their current speed
         runningSpeed = Mathf.Clamp(Mathf.Abs(moveScript.velocity.x), 0, maxSpeed);
-        myAnimator.SetFloat("runSpeed", runningSpeed);
-
         checkForLanding();
     }
 
@@ -69,7 +66,7 @@ public class characterJuice : MonoBehaviour
         Vector3 targetRotVector = new Vector3(0, 0, Mathf.Lerp(-maxTilt, maxTilt, Mathf.InverseLerp(-1, 1, directionToTilt)));
 
         //And then rotate the character in that direction
-        myAnimator.transform.rotation = Quaternion.RotateTowards(myAnimator.transform.rotation, Quaternion.Euler(-targetRotVector), tiltSpeed * Time.deltaTime);
+        PlayerStats.instance.myAnimator.transform.rotation = Quaternion.RotateTowards(PlayerStats.instance.myAnimator.transform.rotation, Quaternion.Euler(-targetRotVector), tiltSpeed * Time.deltaTime);
     }
 
     private void checkForLanding()
@@ -80,7 +77,6 @@ public class characterJuice : MonoBehaviour
             PlayerStats.instance.playerGrounded = true;
 
             //Play an animation, some particles, and a sound effect when the player lands
-            myAnimator.SetTrigger("Landed");
             landParticles.Play();
 
             if (!landSFX.isPlaying && landSFX.enabled)
@@ -109,8 +105,6 @@ public class characterJuice : MonoBehaviour
     public void jumpEffects()
     {
         //Play these effects when the player jumps, courtesy of jump script
-        myAnimator.ResetTrigger("Landed");
-        myAnimator.SetTrigger("Jump");
 
         if (jumpSFX.enabled)
         {

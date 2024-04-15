@@ -10,7 +10,6 @@ public class characterHurt : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] Vector3 checkpointFlag;
-    [SerializeField] Animator myAnim;
     [SerializeField] AudioSource hurtSFX;
     private Coroutine flashRoutine;
     Rigidbody2D body;
@@ -66,7 +65,7 @@ public class characterHurt : MonoBehaviour
         hurtSFX.Play();
 
         Stop(0.1f);
-        myAnim.SetTrigger("Hurt");
+        PlayerStats.instance.myAnimator.SetTrigger("Hurt");
         Flash();
 
         //Start a timer, before respawning the player. This uses the (excellent) free Unity asset DOTween
@@ -127,7 +126,7 @@ public class characterHurt : MonoBehaviour
     {
         transform.position = checkpointFlag;
         PlayerStats.instance.characterCanMove = true;
-        myAnim.SetTrigger("Okay");
+        PlayerStats.instance.myAnimator.SetTrigger("Okay");
         hurting = false;
     }
 }

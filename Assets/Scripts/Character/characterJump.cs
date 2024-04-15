@@ -28,7 +28,6 @@ public class characterJump : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        Debug.Log("Jumping");
         if (PlayerStats.instance.characterCanMove)
         {
             if (context.started)
@@ -46,6 +45,7 @@ public class characterJump : MonoBehaviour
 
     void Update()
     {
+        PlayerStats.instance.myAnimator.SetBool("Pressing Jump", PlayerStats.instance.pressingJump);
         setPhysics();
 
         //Check if we're on ground, using Kit's Ground script
