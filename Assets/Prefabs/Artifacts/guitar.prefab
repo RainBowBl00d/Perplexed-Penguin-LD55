@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3614396455648753619}
   - component: {fileID: 5500520017860560444}
-  - component: {fileID: 5012499528526430158}
   - component: {fileID: 7545869204506811330}
   - component: {fileID: -5977178602704099905}
+  - component: {fileID: 6009312073150657944}
   m_Layer: 0
   m_Name: guitar
   m_TagString: Artifact
@@ -87,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5012499528526430158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8674094279112282772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 662f03005b0851f44b6dbfaa1cbdc3f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identify: Guitar
 --- !u!114 &7545869204506811330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,3 +140,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.64
+--- !u!114 &6009312073150657944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674094279112282772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662f03005b0851f44b6dbfaa1cbdc3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identify: Guitar
