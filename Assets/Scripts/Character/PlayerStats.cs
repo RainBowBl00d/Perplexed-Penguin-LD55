@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats instance;
-    private void OnEnable()
+    private void Awake()
     {
         instance = this;
     }
@@ -45,7 +45,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Current State")]
     public bool onGround;
     public bool pressingKey;
-    public bool characterCanMove;
+    public bool characterCanMove =  true;
     public bool canJumpAgain = false;
     public bool desiredJump;
     public float jumpBufferCounter;

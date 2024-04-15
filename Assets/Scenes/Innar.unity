@@ -305,6 +305,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.0142297745
       objectReference: {fileID: 0}
+    - target: {fileID: 5741808773951243588, guid: d911bf4a06b170146857297385068962, type: 3}
+      propertyPath: jumpSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741808773951243588, guid: d911bf4a06b170146857297385068962, type: 3}
+      propertyPath: gravMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6056510698388896231, guid: d911bf4a06b170146857297385068962, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.83
@@ -358,7 +366,57 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1240635648667357212, guid: d911bf4a06b170146857297385068962, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1852798726}
+    - targetCorrespondingSourceObject: {fileID: 1240635648667357212, guid: d911bf4a06b170146857297385068962, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1852798727}
   m_SourcePrefab: {fileID: 100100000, guid: d911bf4a06b170146857297385068962, type: 3}
+--- !u!1 &478694974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 478694976}
+  - component: {fileID: 478694975}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &478694975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478694974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &478694976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478694974}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1100082442
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +559,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1240635648667357212, guid: d911bf4a06b170146857297385068962, type: 3}
   m_PrefabInstance: {fileID: 298993426}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1852798717 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5741808773951243588, guid: d911bf4a06b170146857297385068962, type: 3}
+  m_PrefabInstance: {fileID: 298993426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852798715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fff9a0f59e36484e9f17ebb8cbc8eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1852798719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 503799787325465251, guid: d911bf4a06b170146857297385068962, type: 3}
+  m_PrefabInstance: {fileID: 298993426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852798715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250914dd0108846448dce9fe6215116f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1852798724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,27 +648,27 @@ MonoBehaviour:
   maxAcceleration: 52
   maxDecceleration: 52
   maxTurnSpeed: 80
-  maxAirAcceleration: 0
-  maxAirDeceleration: 0
+  maxAirAcceleration: 21
+  maxAirDeceleration: 21
   maxAirTurnSpeed: 80
-  friction: 0
-  jumpHeight: 7.3
-  timeToJumpApex: 0
+  friction: 0.67
+  jumpHeight: 5.5
+  timeToJumpApex: 0.403
   upwardMovementMultiplier: 1
   downwardMovementMultiplier: 6.17
-  maxAirJumps: 0
-  variablejumpHeight: 0
-  jumpCutOff: 0
-  speedLimit: 0
+  maxAirJumps: 1
+  variablejumpHeight: 1
+  jumpCutOff: 3.04
+  speedLimit: 10.98
   coyoteTime: 0.15
   jumpBuffer: 0.15
-  useAcceleration: 0
-  groundTag: 
+  useAcceleration: 1
+  groundTag: Ground
   groundLength: 0.95
   colliderOffset: {x: 0, y: 0, z: 0}
   onGround: 0
   pressingKey: 0
-  characterCanMove: 0
+  characterCanMove: 1
   canJumpAgain: 0
   desiredJump: 0
   jumpBufferCounter: 0
@@ -599,6 +679,68 @@ MonoBehaviour:
   jumpSqueezing: 0
   landSqueezing: 0
   playerGrounded: 0
+--- !u!114 &1852798727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852798715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 5be4471d65499434ea1b20e6a27b1b0a, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1852798719}
+        m_TargetAssemblyTypeName: characterMovement, Assembly-CSharp
+        m_MethodName: OnMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ac091bfa-5f8d-4c67-81a5-d97f16b58806
+    m_ActionName: Player/Move[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1852798717}
+        m_TargetAssemblyTypeName: characterJump, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 05a19589-2367-479d-aac8-b962f90ca4bf
+    m_ActionName: Player/Jump[/Keyboard/space]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 1100082444}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -606,3 +748,4 @@ SceneRoots:
   - {fileID: 1100082445}
   - {fileID: 298993426}
   - {fileID: 52726638}
+  - {fileID: 478694976}
