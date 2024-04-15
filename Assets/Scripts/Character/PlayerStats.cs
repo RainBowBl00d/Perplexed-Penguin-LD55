@@ -13,6 +13,9 @@ public class PlayerStats : MonoBehaviour
     [Header("Animation")]
     [SerializeField] public Animator myAnimator;
 
+    [Header("Player Statistics")]
+    [SerializeField] public Health health;
+
     [Header("Camera setting")]
     [SerializeField] public float yCameraOffset = 0f;
     [SerializeField] public float cameraLookAhead = 0f;
