@@ -26,8 +26,9 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public int manaCostSaxaphone;
     [SerializeField] public int manaRegeneration;
     [SerializeField] public int healthRegeneration;
-
-
+    [SerializeField] public bool immune;
+    float immunityFrames;
+     
 
     [Header("Camera setting")]
     [SerializeField] public float yCameraOffset = 0f;
@@ -82,6 +83,12 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
+        immunityFrames += Time.deltaTime;
+        if (immunityFrames > 10f)
+        {
+            immune = false;
+            immunityFrames = 0f;
+        }
         health.AddHealth(healthRegeneration);
         mana.AddHealth(manaRegeneration);
         timeLeftTilEnd -= Time.deltaTime;

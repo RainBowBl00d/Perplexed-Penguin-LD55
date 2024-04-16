@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     // Health Mechanics
     public void SubtractHealt( int damageTaken)
     {
+        if (PlayerStats.instance.immune && gameObject.tag == "Player") return;
         health -= damageTaken;
         if (health <= 0) Death();
     }

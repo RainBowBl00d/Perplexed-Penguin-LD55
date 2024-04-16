@@ -148,7 +148,6 @@ public class characterJump : MonoBehaviour
         {
 
             if (PlayerStats.instance.onGround)
-            //Don't change it if Kit is stood on something (such as a moving platform)
             {
                 gravMultiplier = defaultGravityScale;
             }
